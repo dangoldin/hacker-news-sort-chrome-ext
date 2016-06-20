@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Hacker News Sort Extension",
+  "description": "Combine the data from the Hacker News front and second page and shuffle a bit to add some randomness.",
+  "version": "0.1",
+  "permissions": [
+    "activeTab"
+  ],
+
+  "background": {
+    "scripts": ["hn-sort.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    // "default_icon": "icon.png",
+    "default_title": "Fix the sort up!"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://news.ycombinator.com/*"],
+      "js": ["hn-sort.js"]
+    }
+  ],
+  "permissions": [
+    "https://news.ycombinator.com/*"
+  ]
+}
